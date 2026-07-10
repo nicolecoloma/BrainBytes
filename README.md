@@ -76,4 +76,18 @@ The following workflows do **not** include the `workflow_dispatch` trigger and a
 
 If an automatically triggered workflow fails, you can rerun it by opening the workflow run page in the **Actions** tab and selecting **Re-run jobs**.
 
+## Troubleshooting
+
+If a workflow fails, begin by reviewing the job logs in **GitHub Actions**. Then, reproduce the issue locally by running the corresponding commands in the affected application directory.
+
+| **Issue**                                 | **Recommended Solution**                                                                                                                                                                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Linting failures**                      | Run `npm ci` followed by `npm run lint:js` in both `brainbytes-multi-container/frontend` and `brainbytes-multi-container/backend`.                                                               |
+| **Test failures**                         | Execute `npm test` in the appropriate frontend or backend folder to reproduce the issue before reviewing the workflow logs.                                                                      |
+| **Docker build or Docker Compose errors** | Ensure Docker Desktop is running and verify that the Docker Compose configuration matches the service paths referenced in the GitHub Actions workflows.                                          |
+| **Security scan failures**                | Confirm that the `SNYK_TOKEN` repository secret is configured correctly and that the image names used by the Trivy scan match those generated during the build process.                          |
+| **Deployment health check failure**       | Keep in mind that the current deployment workflow uses a placeholder deployment script, so a live service may not yet be available for health checks.                                            |
+| **Unable to run a workflow manually**     | Verify that the workflow includes the `workflow_dispatch` trigger. Otherwise, it can only be started by a `push`, `pull_request`, or by selecting **Re-run jobs** from an existing workflow run. |
+
+
 

@@ -9,8 +9,21 @@ Team Member
 Nicole Andrea Coloma
 Email: lr.nacoloma@mmdc.mcl.edu.ph
 
-**Project Goals
-**Develop a containerized application with a well-configured networking setup.
+Project Goals
+
+Develop a containerized application with a well-configured networking setup.
 Build an automated CI/CD pipeline using GitHub Actions to streamline development and deployment.
 Deploy the application on Railway.app for reliable cloud hosting.
 Implement monitoring and observability solutions to track application performance and system health.
+
+Technology Stack
+Layer	Technology
+| **Layer**        | **Technology**       |
+| ---------------- | -------------------- |
+| Frontend         | Next.js              |
+| Backend          | Node.js              |
+| Database         | MongoDB Atlas        |
+| Containerization | Docker               |
+| CI/CD            | GitHub Actions       |
+| Cloud Provider   | Railway.app          |
+| Monitoring       | Prometheus & Grafana |
